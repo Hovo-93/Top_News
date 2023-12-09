@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('static/img/top_news.jpg'); /* Specify your image path */
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+        .messages .success {
+            color: green;
+            /* Other styles for success messages */
+        }
+
+        .messages .error {
+            color: red;
+            /* Other styles for error messages */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+         <a class="btn btn-primary" href="{% url 'latest_link' %}" role="button">Links</a>
+         <a class="btn btn-primary" href="{% url 'get_top_news' %}" role="button">Update Latest News</a>
+         <a class="btn btn-primary" href="{% url 'all_news' %}" role="button">Top News</a>
+        {% if messages %}
+            <ul class="messages ">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>

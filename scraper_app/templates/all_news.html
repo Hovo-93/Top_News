@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Top News</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+
+    <style>
+
+        /* Custom CSS styles */
+        .news-item {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .news-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        h1 {
+          color:  red;
+        }
+    </style>
+</head>
+<body>
+      <div class="container">
+        <h1> Top News</h1>
+        <div class="news-list">
+            {% for news_item in all_news_items %}
+                <div class="card flex-row">
+                    <img class="card-img-left img-fluid" src="{{ news_item.image }}" alt="{{ news_item.title }} Image" />
+                    <div class="card-body">
+                        <h4 class="card-title h5 h4-sm">{{ news_item.title }}</h4>
+                        <p class="card-text">{{ news_item.text }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap JS -->
+</body>
+</html>
